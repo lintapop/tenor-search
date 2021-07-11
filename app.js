@@ -1,3 +1,6 @@
+
+
+
 // Require Libraries
 const express = require('express');
 const Tenor = require("tenorjs").client({
@@ -8,6 +11,7 @@ const Tenor = require("tenorjs").client({
 
 // App Setup
 const app = express();
+app.use(express.static('public'));
 
 // Middleware
 const exphbs = require('express-handlebars');
@@ -32,16 +36,6 @@ app.get('/', (req, res) => {
         }).catch(console.error);
 })
 
-// app.get('/greetings/:name', (req, res) => {
-//     // grab the name from the path provided
-//     const name = req.params.name;
-//     // render the greetings view, passing along the name
-//     res.render('greetings', { name });
-// })
-
-// app.get('/', (req, res) => {
-//     res.send('I have set the route in an Express project!');
-// });
 
 
 // Start Server
